@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+<!--    for other work-->
+    <record id="action_report_equipment_interchange" model="ir.actions.report">
+        <field name="name">Equipment Interchange Report</field>
+        <field name="model">gate.in</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">mict_terminal.report_equipment_interchanges</field>
+        <field name="report_file">mict_terminal.report_equipment_interchanges</field>
+        <field name="binding_model_id" ref="model_gate_in"/>
+        <field name="binding_type">report</field>
+    </record>
+<!--    <record id="action_report_equipment_interchange_import" model="ir.actions.report">-->
+<!--        <field name="name">Equipment Interchange Report (Import)</field>-->
+<!--        <field name="model">gate.in</field>-->
+<!--        <field name="report_type">qweb-pdf</field>-->
+<!--        <field name="report_name">mict_terminal.report_equipment_interchanges_import</field>-->
+<!--        <field name="report_file">mict_terminal.report_equipment_interchanges_import</field>-->
+<!--        <field name="binding_model_id" ref="model_gate_in"/>-->
+<!--        <field name="binding_type">report</field>-->
+<!--    </record>-->
+<!--    <record id="action_report_equipment_interchange_export" model="ir.actions.report">-->
+<!--        <field name="name">Equipment Interchange Report (Export)</field>-->
+<!--        <field name="model">gate.in</field>-->
+<!--        <field name="report_type">qweb-pdf</field>-->
+<!--        <field name="report_name">mict_terminal.report_equipment_interchanges_export</field>-->
+<!--        <field name="report_file">mict_terminal.report_equipment_interchanges_export</field>-->
+<!--        <field name="binding_model_id" ref="model_gate_in"/>-->
+<!--        <field name="binding_type">report</field>-->
+<!--    </record>-->
+
+
+</odoo>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+    <!--  TREE VIEW  -->
+    <record id="bay_plan_tree" model="ir.ui.view">
+        <field name="name">bay.plan.tree</field>
+        <field name="model">bay.plan</field>
+        <field name="arch" type="xml">
+            <tree string="Bay Plan">
+                <field name="terminal_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <!--  FORM VIEW  -->
+    <record model="ir.ui.view" id="bay_plan_form">
+        <field name="name">bay.plan.form</field>
+        <field name="model">bay.plan</field>
+        <field name="arch" type="xml">
+            <form string="Bay Plan">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="terminal_id"/>
+                        </group>
+                        <group>
+                            <field name="total_teus" force_save="1"/>
+                            <field name="total_area_acres" force_save="1"/>
+                        </group>
+                    </group>
+                    <field name="bay_plan_line_ids" widget="one2many">
+                        <tree editable="bottom">
+                            <field name="self_ids"/>
+                            <field name="terminal_service_id"/>
+                            <field name="name"/>
+                            <field name="row"/>
+                            <field name="col"/>
+                            <field name="tier"/>
+                        </tree>
+                    </field>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers"/>
+                    <field name="activity_ids" widget="mail_activity"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="mict_terminal.action_terminal_bay_plan">
+        <field name="name">Bay Plan</field>
+        <field name="res_model">bay.plan</field>
+        <field name="view_mode">tree,form,search</field>
+    </record>
+
+    <menuitem name="Bay Plan" id="menu_terminal_bay_plan"
+              parent="mict_terminal.mict_terminal_root"
+              sequence="7"
+            action="mict_terminal.action_terminal_bay_plan"/>
+</odoo>

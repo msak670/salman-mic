@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="report_equipment_interchanges">
+        <t t-call="web.html_container">
+            <t t-call="web.basic_layout">
+                <t t-foreach="docs" t-as="o">
+                    <div class="header">
+                        <div class="row">
+                            <div class="col-4">
+                                <img src="/mict_terminal/static/src/images/main_logo.png" style="width:150px;height:150px;"/>
+                            </div>
+                            <div class="col-6" style="text-align:center;padding-top:50px;">
+                                <b>MARINE INTERNATIONAL CONTAINER TERMINAL</b>
+                                <br/>
+                                6-Km, Raiwind, Near Prem Nagar Railway Station, Kot Radha Kishan Road
+                            </div>
+                        </div>
+                    </div>
+                    <div style="border-bottom:1px solid black;"/>
+                    <div class="page">
+                        <div class="row">
+                            <div class="col-4"/>
+                            <div class="col-5" style="text-align:center">
+                                <b>EQUIPMENT INTERCHANGE REPORT</b>
+                                <br/>
+                                <b t-if="o.terminal_booking_id.booking_type_id.name == 'Domestic'">EMPTY IN/OUT</b>
+                                <b t-if="o.terminal_booking_id.booking_type_id.name == 'Import'">DELIVER IMPORT CONTAINER</b>
+                                <b t-if="o.terminal_booking_id.booking_type_id.name == 'Export'">EMPTY RECEIVED</b>
+                            </div>
+                        </div>
+                        <br/>
+                        <div class="row">
+                            <div class="col-6">
+                                Line Name <span style="padding-left:10px;text-decoration:underline;"
+                                                t-field="o.terminal_booking_id.line"/><br/>
+                                Container # <span style="padding-left:10px;text-decoration:underline;"
+                                                  t-field="o.container_no.container_no"/><br/>
+                                Vessel <span style="padding-left:10px;text-decoration:underline;"
+                                             t-field="o.terminal_booking_id.vessel"/><br/>
+                                C/Agent <span style="padding-left:10px;text-decoration:underline;"
+                                              t-field="o.terminal_booking_id.agent_id.name"/><br/>
+                                Transporter <span style="padding-left:10px;text-decoration:underline;"
+                                                  t-field="o.terminal_booking_id.train_transporter"/><br/>
+                                Received From <span style="padding-left:10px;text-decoration:underline;"
+                                                    t-field="o.terminal_booking_id.port_of_loading.name"/><br/>
+                                Remarks <span style="padding-left:10px;text-decoration:underline;"
+                                              t-field="o.terminal_booking_id.remarks"/><br/>
+                                Name <span style="padding-left:10px;text-decoration:underline;"
+                                           t-field="o.terminal_booking_id.client_id.name"/><br/>
+                                CNIC # <span style="padding-left:10px;text-decoration:underline;"
+                                             t-field="o.terminal_booking_id.client_id.strn"/><br/>
+                                Cell # <span style="padding-left:10px;text-decoration:underline;"
+                                             t-field="o.terminal_booking_id.client_id.mobile"/>
+                            </div>
+                            <div class="col-6">
+                                Received Date <span style="padding-left:10px;text-decoration:underline;"
+                                                    t-field="o.terminal_booking_id.date"/><br/>
+                                Size <span style="padding-left:10px;text-decoration:underline;"
+                                           t-field="o.container_size_id.name"/><br/>
+                                Condition <span style="padding-left:10px;text-decoration:underline;"
+                                                t-field="o.container_status"/><br/>
+                                Voyage <span style="padding-left:10px;text-decoration:underline;"
+                                             t-field="o.terminal_booking_id.voyage"/><br/>
+                                Seal No. <span style="padding-left:10px;text-decoration:underline;"
+                                               t-field="o.seal_no"/><br/>
+                                Consignee <span style="padding-left:10px;text-decoration:underline;"
+                                                t-field="o.terminal_booking_id.consignee_id.name"/><br/>
+                                Truck No. <span style="padding-left:10px;text-decoration:underline;"
+                                                t-field="o.terminal_booking_id.terminal_booking_line_ids.truck_id.display_name"/><br/>
+                                Shift <span style="padding-left:10px;text-decoration:underline;"
+                                            t-field="o.terminal_booking_id.shift"/><br/>
+                                Doc Ref No. <span style="padding-left:10px;text-decoration:underline;"
+                                                  t-field="o.terminal_booking_id.code"/>
+                            </div>
+                        </div>
+                        <br/>
+                        <br/>
+                        <div>
+                            <img src="/mict_terminal/static/src/images/diagram.png"/>
+                        </div>
+                        <br/>
+                        <div class="row">
+                            <div class="col-6">
+                                Prv<br/>
+                                Remarks
+                            </div>
+                        </div>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+
+</odoo>

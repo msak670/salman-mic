@@ -1,0 +1,14 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_gate_in_stage,gate.in.stage,model_gate_in_stage,,1,1,1,1
+access_gate_in,gate.in,model_gate_in,,1,1,1,1
+access_gate_out_stage,gate.out.stage,model_gate_out_stage,,1,1,1,1
+access_gate_out,gate.out,model_gate_out,,1,1,1,1
+access_container_stacking_stage,container.stacking.stage,model_container_stacking_stage,,1,1,1,1
+access_container_stacking,container.stacking,model_container_stacking,,1,1,1,1
+access_terminal_service,terminal.service,model_terminal_service,,1,1,1,1
+access_terminal_terminal,terminal.terminal,model_terminal_terminal,,1,1,1,1
+access_terminal_service_line,terminal.service.line,model_terminal_service_line,,1,1,1,1
+access_bay_plan_line,bay.plan.line,model_bay_plan_line,,1,1,1,1
+access_bay_plan,bay.plan,model_bay_plan,,1,1,1,1
+access_bay_plan_attribute,bay.plan.attribute,model_bay_plan_attribute,,1,1,1,1
+access_terminal_expenses,terminal.expenses,model_terminal_expenses,,1,1,1,1

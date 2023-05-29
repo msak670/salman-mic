@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+    <!--  TREE VIEW  -->
+    <record id="bay_plan_attribute_tree" model="ir.ui.view">
+        <field name="name">bay.plan.attribute.tree</field>
+        <field name="model">bay.plan.attribute</field>
+        <field name="arch" type="xml">
+            <tree string="Bay Plan Attributes" create="false" edit="false">
+                <field name="terminal_id"/>
+                <field name="terminal_service_id"/>
+                <field name="name"/>
+                <field name="state"/>
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="mict_terminal.action_bay_plan_attribute">
+        <field name="name">Bay Plan Attribute</field>
+        <field name="res_model">bay.plan.attribute</field>
+        <field name="view_mode">tree</field>
+    </record>
+
+    <menuitem name="Bay Plan Attributes" id="menu_bay_plan_attribute"
+              parent="mict_terminal.mict_terminal_configuration"
+              sequence="4"
+            action="mict_terminal.action_bay_plan_attribute"/>
+</odoo>

@@ -1,0 +1,379 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="report_equipment_interchanges_import">
+        <t t-call="web.html_container">
+            <t t-call="web.basic_layout">
+                <t t-foreach="docs" t-as="o">
+                    <div class="header">
+                        <img src="/mict_terminal/static/src/images/hutchison_logo.png"
+                             class="float-left" alt="Logo"/>
+                        <div class="float-right">
+                            <h6 class="mt0">
+                                <b>Hutchison Ports KICT</b><br/>
+                                Administration Building. Berth Nos. 26-30<br/>
+                                Dockyard Road.<br/>
+                                West Wharf, P.O. Box 10084, Karachi-7400<br/>
+                                Pakistan<br/>
+                                T (+92)21 111542850 &amp; (+92)21 35273599<br/>
+                                F (+92)21 323 138 16<br/>
+                                Kictl.com
+                            </h6>
+                        </div>
+                    </div>
+                    <br/>
+                    <br/>
+                    <div class="page">
+                        <div class="row" style="display: flex; align-items: center; justify-content: center;">
+                            <div style="display: block; margin: 0 auto; text-align: center;width:100%">
+                                <b>Hutchison Ports KICT</b><br/>
+                                <b>EQUIPMENT INTERCHANGE RECEIPT</b><br/>
+                                Deliver Import Container
+                            </div>
+                        </div>
+                        <br/>
+                        <br/>
+                        <div class="row">
+                            <div class="col-6">
+                                <b>LINE OPERATOR</b> : <span style="padding-left:10px;"
+                                                t-field="o.terminal_booking_id.line"/><br/>
+                                <b>DATE/TIME</b> : <span style="padding-left:10px;"
+                                                  t-esc="context_timestamp(datetime.datetime.now()).strftime('%a %b %d %H:%M:%S %Z %Y')" /><br/>
+                                <b>CONTAINER</b> : <span style="padding-left:10px;"
+                                                  t-field="o.container_no.container_no"/><br/>
+                                <b>SHIPPER</b> : <br/>
+                                <b>VESSEL</b> : <span style="padding-left:10px;"
+                                             t-field="o.terminal_booking_id.vessel"/><br/>
+                                <b>LOAD PORT</b> : <span style="padding-left:10px;"
+                                             t-field="o.terminal_booking_id.port_of_loading.name"/><br/>
+                                <b>GROSS WEIGHT</b> : <span style="padding-left:10px;"
+                                             t-field="o.terminal_booking_id.gross_weight"/>
+                                    <span style="padding-left:10px;">KG</span><br/>
+                                <b>SHIPPER VGM.</b> : <br/>
+                                <b>COMMODITY</b> : <br/>
+                                <b>HAZARD CODE</b> : <br/>
+                                <b>ORIGIN</b> : <br/>
+                                <b>SHIPPER</b> : <br/>
+                                <b>TRUCKING COMPANY</b> : <span style="padding-left:10px;"
+                                             t-field="o.terminal_booking_id.train_transporter"/><br/>
+                                <b>AGENT</b> : <span style="padding-left:10px;"
+                                             t-field="o.terminal_booking_id.agent_id.name"/><br/>
+                                <b>LINE SEAL</b> : <br/>
+                                <b>CUSTOMS SEAL</b> : <br/>
+                                <b>SECURITY SEAL</b> : <br/>
+                                <b>OTHER SEAL</b> : <br/>
+                            </div>
+                            <div class="col-6">
+                                <b>TRANSACTION</b> : <span style="padding-left:10px;"
+                                             t-field="o.terminal_booking_id.code"/><br/>
+                                <b>CONTAINER TYPE</b> : <span style="padding-left:10px;"
+                                           t-field="o.container_size_id.name"/><span style="padding-left:10px;"
+                                           t-field="o.container_type_id.name"/><br/>
+                                <b>VOYAGE</b> : <span style="padding-left:10px;"
+                                             t-field="o.terminal_booking_id.voyage"/><br/>
+                                <b>STATUS</b> : <span style="padding-left:10px;"
+                                             t-field="o.terminal_booking_id.terminal_booking_line_ids.container_status"/><br/>
+                                <b>SAFE WEIGHT</b> : <br/>
+                                <b>SET TEMP</b> : <br/>
+                                <b>DESTINATION</b> : <span style="padding-left:10px;"
+                                             t-field="o.terminal_booking_id.final_destination.name"/><br/>
+                                <b>TRUCK ID</b> : <span style="padding-left:10px;"
+                                                t-field="o.terminal_booking_id.terminal_booking_line_ids.truck_id.display_name"/><br/>
+                                <b>BUNDLE SON ID</b> : <br/>
+                            </div>
+                        </div>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+
+<!--    <template id="report_equipment_interchanges_import">-->
+<!--        <t t-call="web.html_container">-->
+<!--            <t t-foreach="docs" t-as="o">-->
+<!--                &lt;!&ndash;                <div t-call="web.external_layout">&ndash;&gt;-->
+<!--                <div class="article o_report_layout_standard" t-att-data-oe-model="o and o._name"-->
+<!--                     t-att-data-oe-id="o and o.id">-->
+<!--&lt;!&ndash;                    <t t-call="mict_terminal.custom_equipment_header"/>&ndash;&gt;-->
+<!--                    <td>-->
+<!--                        <div style="position:relative;margin:5px auto;text-align:center; vertical-align:middle; display: inline-block;">-->
+<!--                            <p>-->
+<!--                                <img t-att-src="'/mict_terminal/static/src/images/main_logo.png'"/>-->
+<!--                                <span style="font-size:25px; font-family:'Times New Roman',Times, serif;">-->
+<!--                                    <b>MARINE INTERNATIONAL CONTAINER TERMINAL</b>-->
+<!--                                </span>-->
+<!--                                <br/>-->
+<!--                                <span style="font-family:serif; padding-left:20px;">6-Km, Raiwind, Near Prem Nagar-->
+<!--                                    Railway Station, Kot Radha Kishan Road-->
+<!--                                </span>-->
+<!--                            </p>-->
+<!--                        </div>-->
+<!--                    </td>-->
+<!--                    <br/>-->
+<!--                    <div class="page">-->
+<!--                        <h2 align="center" style="font-size:40px;">Equipment Interchange Report</h2>-->
+<!--                        <h3 align="center" style="font-size:30px;">Deliver Import Container</h3>-->
+<!--                        <div class="oe_structure"/>-->
+<!--                        <div class="row">-->
+<!--                            <div>-->
+<!--                                <table class="table" style=" margin-left: 20px">-->
+<!--                                    <tr>-->
+
+<!--                                        <td>-->
+<!--                                            <table>-->
+<!--                                                <tr>-->
+<!--                                                    <td>-->
+<!--                                                        <span>-->
+<!--                                                            <strong>Line Name:</strong>-->
+<!--                                                        </span>-->
+<!--                                                        <span t-field="o.terminal_booking_id.line"/>-->
+<!--&lt;!&ndash;                                                        <span t-field="o.line_name"/>&ndash;&gt;-->
+<!--                                                    </td>-->
+<!--                                                </tr>-->
+<!--                                                <tr>-->
+<!--                                                    <td>-->
+<!--                                                        <span>-->
+<!--                                                            <strong>Date:</strong>-->
+<!--                                                        </span>-->
+<!--                                                        <span t-field="o.terminal_booking_id.date"/>-->
+<!--&lt;!&ndash;                                                        <span t-field="o.date"/>&ndash;&gt;-->
+<!--                                                    </td>-->
+<!--                                                    <td>-->
+<!--                                                        <span>-->
+<!--                                                            <strong>Transaction:</strong>-->
+<!--                                                        </span>-->
+<!--&lt;!&ndash;                                                        <span t-field="o.transaction"/>&ndash;&gt;-->
+<!--                                                    </td>-->
+<!--                                                </tr>-->
+<!--                                                <tr>-->
+<!--                                                    <td>-->
+<!--                                                        <span>-->
+<!--                                                            <strong>Container:</strong>-->
+<!--                                                        </span>-->
+<!--                                                    </td>-->
+<!--                                                    <td>-->
+<!--                                                        <span t-field="o.container_no"/>-->
+<!--&lt;!&ndash;                                                        <span t-field="o.container_number"/>&ndash;&gt;-->
+<!--                                                    </td>-->
+<!--                                                    <td>-->
+<!--                                                        <span>-->
+<!--                                                            <strong>Container Type:</strong>-->
+<!--                                                        </span>-->
+<!--                                                    </td>-->
+<!--                                                    <td>-->
+<!--                                                         <span t-field="o.container_type_id.name"/>-->
+<!--&lt;!&ndash;                                                        <span t-field="o.container_type"/>&ndash;&gt;-->
+<!--                                                    </td>-->
+<!--                                                </tr>-->
+<!--                                                <tr>-->
+<!--                                                    <td>-->
+<!--                                                        <span>-->
+<!--                                                            <strong>Shipper:</strong>-->
+<!--                                                        </span>-->
+<!--                                                    </td>-->
+<!--                                                    <td>-->
+<!--&lt;!&ndash;                                                        <span t-field="o.shipper"/>&ndash;&gt;-->
+<!--                                                    </td>-->
+<!--                                                </tr>-->
+<!--                                                <tr>-->
+<!--                                                    <td>-->
+<!--                                                        <span>-->
+<!--                                                            <strong>Vessel:</strong>-->
+<!--                                                        </span>-->
+<!--                                                    </td>-->
+<!--                                                    <td>-->
+<!--                                                        <span t-field="o.terminal_booking_id.vessel"/>-->
+<!--&lt;!&ndash;                                                        <span t-field="o.vessel"/>&ndash;&gt;-->
+<!--                                                    </td>-->
+<!--                                                    <td>-->
+<!--                                                        <span>-->
+<!--                                                            <strong>Voyage:</strong>-->
+<!--                                                        </span>-->
+<!--                                                    </td>-->
+<!--                                                    <td>-->
+<!--                                                        <span t-field="o.terminal_booking_id.voyage"/>-->
+<!--&lt;!&ndash;                                                        <span t-field="o.voyage"/>&ndash;&gt;-->
+<!--                                                    </td>-->
+<!--                                                </tr>-->
+<!--                                                <tr>-->
+<!--                                                    <td>-->
+<!--                                                        <span>-->
+<!--                                                            <strong>Load Port:</strong>-->
+<!--                                                        </span>-->
+<!--                                                    </td>-->
+<!--                                                    <td>-->
+<!--                                                        <span t-field="o.terminal_booking_id.port_of_loading.name"/>-->
+<!--&lt;!&ndash;                                                        <span t-field="o.load_port"/>&ndash;&gt;-->
+<!--                                                    </td>-->
+<!--                                                    <td>-->
+<!--                                                        <span>-->
+<!--                                                            <strong>Status:</strong>-->
+<!--                                                        </span>-->
+<!--                                                    </td>-->
+<!--                                                    <td>-->
+<!--&lt;!&ndash;                                                        <span t-field="o.status"/>&ndash;&gt;-->
+<!--                                                    </td>-->
+<!--                                                </tr>-->
+<!--                                                <tr>-->
+<!--                                                    <td>-->
+<!--                                                        <span>-->
+<!--                                                            <strong>Gross Weight:</strong>-->
+<!--                                                        </span>-->
+<!--                                                    </td>-->
+<!--                                                    <td>-->
+<!--&lt;!&ndash;                                                        <span t-field="o.gross_weight"/>&ndash;&gt;-->
+<!--                                                    </td>-->
+<!--                                                    <td>-->
+<!--                                                        <span>-->
+<!--                                                            <strong>Safe Weight:</strong>-->
+<!--                                                        </span>-->
+<!--                                                    </td>-->
+<!--                                                    <td>-->
+<!--&lt;!&ndash;                                                        <span t-field="o.safe_weight"/>&ndash;&gt;-->
+<!--                                                    </td>-->
+<!--                                                </tr>-->
+<!--                                                <tr>-->
+<!--                                                    <td>-->
+<!--                                                        <span>-->
+<!--                                                            <strong>Shipper VGM:</strong>-->
+<!--                                                        </span>-->
+<!--                                                    </td>-->
+<!--                                                    <td>-->
+<!--&lt;!&ndash;                                                        <span t-field="o.shipper_vgm"/>&ndash;&gt;-->
+<!--                                                    </td>-->
+<!--                                                </tr>-->
+<!--                                                <tr>-->
+<!--                                                    <td>-->
+<!--                                                        <span>-->
+<!--                                                            <strong>Commodity:</strong>-->
+<!--                                                        </span>-->
+<!--                                                    </td>-->
+<!--                                                    <td>-->
+<!--&lt;!&ndash;                                                        <span t-field="o.commodity"/>&ndash;&gt;-->
+<!--                                                    </td>-->
+<!--                                                    <td>-->
+<!--                                                        <span>-->
+<!--                                                            <strong>Set Temp:</strong>-->
+<!--                                                        </span>-->
+<!--                                                    </td>-->
+<!--                                                    <td>-->
+<!--&lt;!&ndash;                                                        <span t-field="o.set_temp"/>&ndash;&gt;-->
+<!--                                                    </td>-->
+<!--                                                </tr>-->
+<!--                                                <tr>-->
+<!--                                                    <td>-->
+<!--                                                        <span>-->
+<!--                                                            <strong>Hazard Code:</strong>-->
+<!--                                                        </span>-->
+<!--                                                    </td>-->
+<!--                                                    <td>-->
+<!--&lt;!&ndash;                                                        <span t-field="o.hazard_code"/>&ndash;&gt;-->
+<!--                                                    </td>-->
+<!--                                                </tr>-->
+<!--                                                <tr>-->
+<!--                                                    <td>-->
+<!--                                                        <span>-->
+<!--                                                            <strong>Origin:</strong>-->
+<!--                                                        </span>-->
+<!--                                                    </td>-->
+<!--                                                    <td>-->
+<!--&lt;!&ndash;                                                        <span t-field="o.origin"/>&ndash;&gt;-->
+<!--                                                    </td>-->
+<!--                                                    <td>-->
+<!--                                                        <span>-->
+<!--                                                            <strong>Destination:</strong>-->
+<!--                                                        </span>-->
+<!--                                                    </td>-->
+<!--                                                    <td>-->
+<!--&lt;!&ndash;                                                        <span t-field="o.destination"/>&ndash;&gt;-->
+<!--                                                    </td>-->
+<!--                                                </tr>-->
+<!--                                                <tr>-->
+<!--                                                    <td>-->
+<!--                                                        <span>-->
+<!--                                                            <strong>Transport Company:</strong>-->
+<!--                                                        </span>-->
+<!--                                                    </td>-->
+<!--                                                    <td>-->
+<!--&lt;!&ndash;                                                        <span t-field="o.transport"/>&ndash;&gt;-->
+<!--                                                    </td>-->
+<!--                                                    <td>-->
+<!--                                                        <span>-->
+<!--                                                            <strong>Truck ID:</strong>-->
+<!--                                                        </span>-->
+<!--                                                    </td>-->
+<!--                                                    <td>-->
+<!--&lt;!&ndash;                                                        <span t-field="o.truck_number"/>&ndash;&gt;-->
+<!--                                                    </td>-->
+<!--                                                </tr>-->
+<!--                                                <tr>-->
+<!--                                                    <td>-->
+<!--                                                        <span>-->
+<!--                                                            <strong>Agent:</strong>-->
+<!--                                                        </span>-->
+<!--                                                    </td>-->
+<!--                                                    <td>-->
+<!--&lt;!&ndash;                                                        <span t-field="o.agent"/>&ndash;&gt;-->
+<!--                                                    </td>-->
+<!--                                                </tr>-->
+<!--                                                <tr>-->
+<!--                                                    <td>-->
+<!--                                                        <span>-->
+<!--                                                            <strong>Line Seal:</strong>-->
+<!--                                                        </span>-->
+<!--                                                    </td>-->
+<!--                                                    <td>-->
+<!--&lt;!&ndash;                                                        <span t-field="o.line_seal"/>&ndash;&gt;-->
+<!--                                                    </td>-->
+<!--                                                    <td>-->
+<!--                                                        <span>-->
+<!--                                                            <strong>Bundle Son ID:</strong>-->
+<!--                                                        </span>-->
+<!--                                                    </td>-->
+<!--                                                    <td>-->
+<!--&lt;!&ndash;                                                        <span t-field="o.bundle_id"/>&ndash;&gt;-->
+<!--                                                    </td>-->
+<!--                                                </tr>-->
+<!--                                                <tr>-->
+<!--                                                    <td>-->
+<!--                                                        <span>-->
+<!--                                                            <strong>Customs Seal:</strong>-->
+<!--                                                        </span>-->
+<!--                                                    </td>-->
+<!--                                                    <td>-->
+<!--&lt;!&ndash;                                                        <span t-field="o.customs_seal"/>&ndash;&gt;-->
+<!--                                                    </td>-->
+<!--                                                </tr>-->
+<!--                                                <tr>-->
+<!--                                                    <td>-->
+<!--                                                        <span>-->
+<!--                                                            <strong>Security Seal:</strong>-->
+<!--                                                        </span>-->
+<!--                                                    </td>-->
+<!--                                                    <td>-->
+<!--&lt;!&ndash;                                                        <span t-field="o.security_seal"/>&ndash;&gt;-->
+<!--                                                    </td>-->
+<!--                                                </tr>-->
+<!--                                                <tr>-->
+<!--                                                    <td>-->
+<!--                                                        <span>-->
+<!--                                                            <strong>Other Seal:</strong>-->
+<!--                                                        </span>-->
+<!--                                                    </td>-->
+<!--                                                    <td>-->
+<!--&lt;!&ndash;                                                        <span t-field="o.other_seal"/>&ndash;&gt;-->
+<!--                                                    </td>-->
+<!--                                                </tr>-->
+<!--                                            </table>-->
+<!--                                        </td>-->
+<!--                                    </tr>-->
+<!--                                </table>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </t>-->
+<!--        </t>-->
+<!--    </template>-->
+
+</odoo>

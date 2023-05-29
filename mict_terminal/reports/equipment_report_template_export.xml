@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="report_equipment_interchanges_export">
+        <t t-call="web.html_container">
+            <t t-call="web.basic_layout">
+                <t t-foreach="docs" t-as="o">
+                    <div class="header">
+                        <div class="col-12">
+                            <div class="row" style="display: flex; align-items: center; justify-content: center;">
+                                <img src="/mict_terminal/static/src/images/uosl_logo.png" style="display: block; margin: 0 auto;width:100px;height:100px;"/>
+                            </div>
+                            <div class="row" style="display: flex; align-items: center; justify-content: center;">
+                                <div style="display: block; margin: 0 auto; text-align: center;width:100%">
+                                    <b>Shipping &amp; Logistics (Pvt) Ltd.</b>
+                                    <br/>
+                                    <b>Equipment Interchange Receipt</b>
+                                    <br/>
+                                    <b>Empty Received</b>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <br/>
+                    <br/>
+                    <div class="page">
+                        <div class="row">
+                            <div class="col-6">
+                                Line Operator : <span style="padding-left:10px;"
+                                                t-field="o.terminal_booking_id.line"/><br/>
+                                Date / Time : <span style="padding-left:10px;"
+                                    t-esc="context_timestamp(datetime.datetime.now()).strftime('%Y-%m-%d %H:%M')"/><br/>
+                                Container : <span style="padding-left:10px;"
+                                                  t-field="o.container_no.container_no"/><br/>
+                                Forwarder : <br/>
+                                Vessel : <span style="padding-left:10px;"
+                                             t-field="o.terminal_booking_id.vessel"/><br/>
+                                Port : <span style="padding-left:10px;"
+                                             t-field="o.terminal_booking_id.port_of_discharge.name"/><br/>
+                                Transport : <span style="padding-left:10px;"
+                                             t-field="o.terminal_booking_id.train_transporter"/><br/>
+                                Remarks : <span style="padding-left:10px;"
+                                             t-field="o.terminal_booking_id.remarks"/><br/>
+                            </div>
+                            <div class="col-6">
+                                Transaction : <span style="padding-left:10px;"
+                                             t-field="o.terminal_booking_id.code"/><br/>
+                                Container Type : <span style="padding-left:10px;"
+                                           t-field="o.container_size_id.name"/><span style="padding-left:10px;"
+                                           t-field="o.container_type_id.name"/><br/>
+                                Customer : <span style="padding-left:10px;"
+                                             t-field="o.terminal_booking_id.client_id.name"/><br/>
+                                Voyage : <span style="padding-left:10px;"
+                                             t-field="o.terminal_booking_id.voyage"/><br/>
+                                Origin : <span style="padding-left:10px;"
+                                             t-field="o.terminal_booking_id.port_of_loading.name"/><br/>
+                                Truck Registration : <span style="padding-left:10px;"
+                                                t-field="o.terminal_booking_id.terminal_booking_line_ids.truck_id.display_name"/><br/>
+                            </div>
+                        </div>
+                        <br/>
+                        <br/>
+                        <div class="row" style="padding-top: 200px;">
+                            <div class="col-6" style="margin-left:100px; ">
+                                <div>
+                                  <hr style="width: 50%; border-top: 1px solid black;"/>
+                                  <span style="text-align:center;">Fwrd./Haulier Signature</span>
+                                </div>
+                            </div>
+                            <div class="col-6" style="margin-right: 100px;">
+                                <div>
+                                  <hr style="width: 50%; border-top: 1px solid black;"/>
+                                  <span style="text-align:center;">O.O Gate Signature</span>
+                                </div>
+                            </div>
+                        </div>
+                        <br/>
+                        <br/>
+                        <div class="row" style="display: flex; align-items: center; justify-content: center;">
+                            <span style="display:block; margin:0 auto; text-align:center; width:100%;"
+                                  t-esc="context_timestamp(datetime.datetime.now()).strftime('%d %b %Y %I:%M %p')"/>
+                        </div>
+                        <br/>
+                        <div class="row" style="padding-top: 100px;">
+                            <div class="col-6" style="margin-left:100px; ">
+                                <div>
+                                  <hr style="width: 50%; border-top: 1px solid black;"/>
+                                  <span style="text-align:center;">Fwrd./Haulier Signature</span>
+                                </div>
+                            </div>
+                            <div class="col-6" style="margin-right: 100px;">
+                                <div>
+                                  <hr style="width: 50%; border-top: 1px solid black;"/>
+                                  <span style="text-align:center;">O.O Gate Signature</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="footer">
+                        <div style="float:right;">
+                            <span class="page"/>
+                            /
+                            <span class="topage"/>
+                        </div>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+</odoo>

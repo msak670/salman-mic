@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+    <record id="gate_in_stage_tree" model="ir.ui.view">
+        <field name="name">gate.in.stage.tree</field>
+        <field name="model">gate.in.stage</field>
+        <field name="arch" type="xml">
+            <tree string="Gate In Stages" editable="bottom">
+                <field name="sequence" widget="handle"/>
+                <field name="stage_name"/>
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="mict_terminal.action_gate_in_stage">
+        <field name="name">Gate In Stages</field>
+        <field name="res_model">gate.in.stage</field>
+        <field name="view_mode">tree</field>
+        <field name="view_id" ref="gate_in_stage_tree"/>
+    </record>
+
+    <menuitem id="mict_terminal_configuration"
+              name="Configuration"
+              parent="mict_terminal.mict_terminal_root"
+              sequence="6"/>
+
+    <menuitem name="Gate In Stages" id="menu_gate_in_stage"
+              parent="mict_terminal.mict_terminal_configuration"
+              sequence="1"
+            action="mict_terminal.action_gate_in_stage"/>
+
+</odoo>

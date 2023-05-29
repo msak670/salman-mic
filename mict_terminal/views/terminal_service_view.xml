@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+    <record id="terminal_service_tree" model="ir.ui.view">
+        <field name="name">terminal.service.tree</field>
+        <field name="model">terminal.service</field>
+        <field name="arch" type="xml">
+            <tree string="Terminal Services" editable="bottom">
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="mict_terminal.action_terminal_service">
+        <field name="name">Terminal Service</field>
+        <field name="res_model">terminal.service</field>
+        <field name="view_mode">tree</field>
+        <field name="view_id" ref="terminal_service_tree"/>
+    </record>
+
+    <menuitem name="Terminal Services" id="menu_terminal_service"
+              parent="mict_terminal.mict_terminal_configuration"
+              sequence="5"
+            action="mict_terminal.action_terminal_service"/>
+</odoo>

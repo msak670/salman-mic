@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+    <!--  TREE VIEW  -->
+    <record id="terminal_terminal_tree" model="ir.ui.view">
+        <field name="name">terminal.terminal.tree</field>
+        <field name="model">terminal.terminal</field>
+        <field name="arch" type="xml">
+            <tree string="Terminal">
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+    <!--  FORM VIEW  -->
+    <record model="ir.ui.view" id="terminal_terminal_form">
+        <field name="name">terminal.terminal.form</field>
+        <field name="model">terminal.terminal</field>
+        <field name="arch" type="xml">
+            <form string="Terminal">
+                <sheet>
+                    <label for="name" string="Name" class="oe_edit_only"/>
+                    <h1>
+                        <field name="name"/>
+                    </h1>
+                    <group>
+                        <group>
+                            <field name="city"/>
+                            <field name="location_id"/>
+                            <field name="terminal_service_details"/>
+<!--                            <field name="terminal_capacity_teus"/>-->
+                        </group>
+                        <group>
+                            <field name="terminal_service_ids" widget="many2many_tags"/>
+                            <field name="area_acres"/>
+                        </group>
+                    </group>
+                   <field name="terminal_service_line_ids" widget="one2many">
+                       <tree editable="bottom">
+                           <field name="terminal_service_id"/>
+                           <field name="area_acres"/>
+                           <field name="terminal_capacity_teus"/>
+                       </tree>
+                       <form>
+                           <sheet>
+                                <group>
+                                    <group>
+                                        <field name="terminal_service_id"/>
+                                        <field name="area_acres"/>
+                                        <field name="terminal_capacity_teus"/>
+                                    </group>
+                                </group>
+                           </sheet>
+                       </form>
+                   </field>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers"/>
+                    <field name="activity_ids" widget="mail_activity"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="mict_terminal.action_terminal_terminal">
+        <field name="name">Terminal</field>
+        <field name="res_model">terminal.terminal</field>
+        <field name="view_mode">tree,form,search</field>
+    </record>
+
+    <menuitem name="Terminal" id="menu_terminal_terminal"
+              parent="mict_terminal.mict_terminal_root"
+              sequence="3"
+            action="mict_terminal.action_terminal_terminal"/>
+</odoo>
